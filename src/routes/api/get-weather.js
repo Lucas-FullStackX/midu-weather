@@ -8,7 +8,7 @@ const FETCH_OPTIONS = {
 
 export async function get(event) {
 	const { searchParams } = event.url;
-	const query = searchParams.get('q') ?? 'Buenos Aires';
+	const query = searchParams.get('q') ?? 'San Francisco';
 
 	const response = await fetch(
 		`https://weatherapi-com.p.rapidapi.com/current.json?q=${query}`,
@@ -19,7 +19,7 @@ export async function get(event) {
 
 	const { location, current } = data;
 	const { country, localtime, name } = location;
-	const { condition, humidity, feelslike_c, is_day, temp_c, wind_kph, wind_dir } = current;
+	const { condition, humidity, feelslike_c, is_day, temp_c, temp_f, wind_kph, wind_dir } = current;
 	const { text, icon } = condition;
 
 	const body = {
@@ -32,6 +32,7 @@ export async function get(event) {
 		isDay: is_day,
 		feelsLike: feelslike_c,
 		temperature: temp_c,
+		temp_f,
 		windSpeed: wind_kph,
 		windDir: wind_dir
 	};
