@@ -1,9 +1,11 @@
 <script>
-	import { getWeatherFrom } from '../services/weather.js';
+	import { getWeatherFrom, getWeatherWeek } from '../services/weather.js';
 	import WeatherDetails from '../components/weather-details.svelte';
 	import WeatherInfo from '../components/weather-info.svelte';
-
 	const getWeather = getWeatherFrom();
+	const weatherList = getWeatherWeek();
+	console.log(getWeather);
+	console.log(weatherList);
 </script>
 
 {#await getWeather then weather}
@@ -12,6 +14,11 @@
 		<WeatherInfo {weather} />
 		<WeatherDetails {weather} />
 	</section>
+	{#await weatherList then weatherList}
+		{#each weatherList.forecastday as weather}
+			<p>{weather.day.condition.text}</p>
+		{/each}
+	{/await}
 {/await}
 
 <style>

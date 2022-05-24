@@ -1,5 +1,5 @@
 <script>
-	import WindIcon from '../../lib/icons/wind.svg?url';
+	import WindIcon from '../../lib/icons/eye.svg?url';
 
 	$: cssVariables = Object.entries($$props)
 		.filter(([key]) => key.startsWith('--'))
@@ -11,6 +11,8 @@
 <style>
 	img {
 		width: var(--width, 100%);
+		margin: var(--margin, 0);
 		color: #352bd8;
+		filter: invert(9%) sepia(100%) saturate(7227%) hue-rotate(251deg) brightness(88%) contrast(91%);
 	}
 </style>

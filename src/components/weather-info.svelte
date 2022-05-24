@@ -14,7 +14,10 @@
 
 <div class="container">
 	<WeatherIcon text={weather.conditionText} icon={weather.conditionIcon} />
-	<h2>{format === 'Celsius' ? Math.floor(weather.temperature) : Math.floor(weather.temp_f)}º</h2>
+
+	<h2>
+		{format === 'Celsius' ? Math.floor(weather.temperature) : Math.floor(weather.temp_f)}
+	</h2>
 	<h3>{weather.conditionText}</h3>
 	<span
 		><a href="#celsius" class={format === 'Celsius' ? 'selected' : ''} on:click={changeFormat}>C°</a
@@ -44,7 +47,7 @@
 	}
 	.container {
 		border: 2px solid #000;
-		padding: 12px 32px;
+		padding: 32px;
 		width: 90%;
 		margin: 0 auto;
 		border-radius: 10px;

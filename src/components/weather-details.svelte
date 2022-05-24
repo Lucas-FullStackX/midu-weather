@@ -19,9 +19,9 @@
 	</div>
 
 	<div>
-		<VisibleIcon --width="40px" />
+		<VisibleIcon --width="25px" --margin="7px 0 8px 0" />
 		<span> {weather.vis_km}Km</span>
-		<strong> Feels like </strong>
+		<strong> Visibility </strong>
 	</div>
 </div>
 
