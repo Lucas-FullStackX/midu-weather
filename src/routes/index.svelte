@@ -1,6 +1,6 @@
 <script>
 	import { getWeatherFrom } from '../services/weather.js';
-	import WeatherFooter from '../components/weather-footer.svelte';
+	import WeatherDetails from '../components/weather-details.svelte';
 	import WeatherInfo from '../components/weather-info.svelte';
 
 	const getWeather = getWeatherFrom();
@@ -10,8 +10,8 @@
 	<section>
 		<h1>{weather.locationName}</h1>
 		<WeatherInfo {weather} />
+		<WeatherDetails {weather} />
 	</section>
-	<WeatherFooter />
 {/await}
 
 <style>

@@ -1,6 +1,5 @@
 <script>
 	import WeatherIcon from '../components/weather-icon.svelte';
-	import Icon from '../icons/components/icon2.svelte';
 	export let weather;
 	let format = 'Celsius';
 
@@ -24,7 +23,6 @@
 			>F°</a
 		></span
 	>
-	<Icon />
 </div>
 
 <style>
@@ -47,7 +45,7 @@
 	.container {
 		border: 2px solid #000;
 		padding: 12px 32px;
-		width: 80%;
+		width: 90%;
 		margin: 0 auto;
 		border-radius: 10px;
 		display: grid;
@@ -58,7 +56,6 @@
 		justify-content: space-evenly;
 		bottom: 32px;
 		background: linear-gradient(311deg, #352bd8 0%, rgba(153, 68, 209, 1) 100%);
-		box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 		backdrop-filter: blur(5px);
 		-webkit-backdrop-filter: blur(5px);
 		border-radius: 10px;

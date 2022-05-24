@@ -19,7 +19,8 @@ export async function get(event) {
 
 	const { location, current } = data;
 	const { country, localtime, name } = location;
-	const { condition, humidity, feelslike_c, is_day, temp_c, temp_f, wind_kph, wind_dir } = current;
+	const { condition, humidity, feelslike_c, is_day, vis_km, wind_kph, temp_c, temp_f, wind_dir } =
+		current;
 	const { text, icon } = condition;
 
 	const body = {
@@ -34,7 +35,8 @@ export async function get(event) {
 		temperature: temp_c,
 		temp_f,
 		windSpeed: wind_kph,
-		windDir: wind_dir
+		windDir: wind_dir,
+		vis_km
 	};
 
 	return {
