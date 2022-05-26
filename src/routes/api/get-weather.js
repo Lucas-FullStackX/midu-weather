@@ -3,11 +3,18 @@ import { FETCH_OPTIONS } from './utils';
 
 export async function get(event) {
 	const { searchParams } = event.url;
-	const query = searchParams.get('q') ?? 'auto:ip';
-	let error = null;
-	let data = null;
-	let loading = true;
-
+	let query = searchParams.get('q');
+	if (query === 'auto:ip') {
+		try {
+			const getIPawait = await fetch('https://api.ipify.org/?format=json', {
+				method: 'GET'
+			});
+			const { ip } = await getIPawait.json();
+			query = ip;
+		} catch (err) {
+			console.log(err);
+		}
+	}
 	let response;
 	try {
 		response = await fetch(
@@ -15,7 +22,7 @@ export async function get(event) {
 			FETCH_OPTIONS
 		);
 	} catch (err) {
-		return { error, data, loading };
+		return err;
 	}
 	let weatherHistory;
 	try {
@@ -28,7 +35,7 @@ export async function get(event) {
 			FETCH_OPTIONS
 		);
 	} catch (err) {
-		return { error, data, loading };
+		return err;
 	}
 	const history = await weatherHistory.json();
 	const info = await response.json();
