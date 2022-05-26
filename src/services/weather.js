@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 
-export async function getWeatherFrom(query = 'San Francisco') {
+export async function getWeatherFrom(query = 'auto:ip') {
 	return fetch(
 		`/api/get-weather?${new URLSearchParams({
 			q: query
@@ -8,7 +8,7 @@ export async function getWeatherFrom(query = 'San Francisco') {
 	).then((res) => res.json());
 }
 
-export async function getWeatherWeek(city = 'San Francisco') {
+export async function getWeatherWeek(city = 'auto:ip') {
 	const today = dayjs().format('YYYY-MM-DD');
 	return fetch(`/api/get-weather-week?${new URLSearchParams({ city, today })}`)
 		.then((res) => res.json())

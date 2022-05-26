@@ -41,6 +41,7 @@
 	div {
 		aspect-ratio: 9 / 16;
 		width: 90%;
+		max-width: 400px;
 		margin: 5% auto;
 		display: block;
 		backdrop-filter: blur(7px);

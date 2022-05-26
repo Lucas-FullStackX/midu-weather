@@ -1,24 +1,24 @@
 <script>
-	import { getWeatherFrom, getWeatherWeek } from '../services/weather.js';
+	import { getWeatherFrom } from '../services/weather.js';
+	import WeatherDay from '../components/weather-day.svelte';
 	import WeatherDetails from '../components/weather-details.svelte';
 	import WeatherInfo from '../components/weather-info.svelte';
 	const getWeather = getWeatherFrom();
-	const weatherList = getWeatherWeek();
-	console.log(getWeather);
-	console.log(weatherList);
 </script>
 
-{#await getWeather then weather}
+{#await getWeather}
+	<p>...loading</p>
+{:then weather}
 	<section>
 		<h1>{weather.locationName}</h1>
 		<WeatherInfo {weather} />
 		<WeatherDetails {weather} />
 	</section>
-	{#await weatherList then weatherList}
-		{#each weatherList.forecastday as weather}
-			<p>{weather.day.condition.text}</p>
+	<div>
+		{#each weather.history ?? [] as weatherHour}
+			<WeatherDay {weatherHour} />
 		{/each}
-	{/await}
+	</div>
 {/await}
 
 <style>
@@ -32,5 +32,16 @@
 		color: #333;
 		text-transform: uppercase;
 		padding: 16px 0 0 0;
+	}
+	div {
+		padding: 16px;
+		width: 90%;
+		overflow: auto;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		flex-direction: row;
+		text-align: center;
 	}
 </style>
