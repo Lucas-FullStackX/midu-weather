@@ -21,7 +21,13 @@
 	:global(*, *::after, *::before) {
 		box-sizing: border-box;
 	}
-
+	:global(img) {
+		user-select: none;
+		-moz-user-select: none;
+		-webkit-user-drag: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+	}
 	:global(h1, h2, h3, h4, h5, span) {
 		margin: 0;
 		color: #fafafa;

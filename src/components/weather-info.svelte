@@ -1,12 +1,13 @@
 <script>
 	import WeatherIcon from '../components/weather-icon.svelte';
 	import { tempStore } from '../store/index.js';
+	import { TempFormats } from '../types';
 	export let weather;
 	function changeFormat() {
-		if ($tempStore === 'Celsius') {
-			tempStore.set('Fahrenheit');
+		if ($tempStore === TempFormats.Celsius) {
+			tempStore.set(TempFormats.Fahrenheit);
 		} else {
-			tempStore.set('Celsius');
+			tempStore.set(TempFormats.Celsius);
 		}
 	}
 </script>
@@ -15,16 +16,20 @@
 	<WeatherIcon text={weather.conditionText} icon={weather.conditionIcon} />
 
 	<h2>
-		{$tempStore === 'Celsius' ? Math.floor(weather.temperature) : Math.floor(weather.temp_f)}
+		{$tempStore === TempFormats.Celsius
+			? Math.floor(weather.temperature)
+			: Math.floor(weather.temp_f)}
 	</h2>
 	<h3>{weather.conditionText}</h3>
 	<span
-		><a href="#celsius" class={$tempStore === 'Celsius' ? 'selected' : ''} on:click={changeFormat}
-			>C°</a
+		><a
+			href="#celsius"
+			class={$tempStore === TempFormats.Celsius ? 'selected' : ''}
+			on:click={changeFormat}>C°</a
 		>/
 		<a
 			href="#fahrenheit"
-			class={$tempStore === 'Fahrenheit' ? 'selected' : ''}
+			class={$tempStore === TempFormats.Fahrenheit ? 'selected' : ''}
 			on:click={changeFormat}>F°</a
 		></span
 	>
@@ -33,6 +38,7 @@
 <style>
 	.selected {
 		color: #fafafa;
+		pointer-events: none;
 	}
 	a {
 		color: rgba(255, 255, 255, 0.3);

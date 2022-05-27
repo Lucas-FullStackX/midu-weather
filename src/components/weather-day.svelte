@@ -1,13 +1,27 @@
 <script>
 	import dayjs from 'dayjs';
-
+	import { onMount } from 'svelte';
+	import { tempStore } from '../store';
+	import { TempFormats } from '../types';
 	import WeatherIcon from './weather-icon.svelte';
-
+	// props
 	export let weatherHour;
+	// states
+	let currentHour;
+	const getHour = (day) => Number(dayjs(day).format('HH'));
+	onMount(() => {
+		if (getHour(dayjs()) === getHour(dayjs(weatherHour.time))) {
+			currentHour = true;
+		}
+	});
 </script>
 
-<div class="container">
-	<p>{Math.floor(weatherHour.temp_c)}°</p>
+<div class={currentHour ? 'container current' : 'container'}>
+	<p>
+		{$tempStore === TempFormats.Celsius
+			? Math.floor(weatherHour.temp_c)
+			: Math.floor(weatherHour.temp_f)}°
+	</p>
 	<p>{dayjs(weatherHour.time).format('HH:MM')}</p>
 	<WeatherIcon text={weatherHour.condition.text} icon={weatherHour.condition.icon} />
 </div>
@@ -25,6 +39,14 @@
 		text-align: center;
 		justify-content: space-between;
 		background: #fafafa;
+	}
+	.current {
+		background: linear-gradient(311deg, #352bd8 0%, rgba(153, 68, 209, 1) 100%);
+		backdrop-filter: blur(5px);
+		-webkit-backdrop-filter: blur(5px);
+	}
+	.current p {
+		color: #fafafa;
 	}
 	p {
 		margin: 0;

@@ -1,7 +1,8 @@
 import { writable } from 'svelte/store';
+import { TempFormats } from '../types';
 
 const createTempStore = () => {
-	const { subscribe, set, update } = writable('Celsius');
+	const { subscribe, set, update } = writable(TempFormats.Celsius);
 	return {
 		subscribe,
 		set,
