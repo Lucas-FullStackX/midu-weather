@@ -4,17 +4,6 @@ import { FETCH_OPTIONS } from './utils';
 export async function get(event) {
 	const { searchParams } = event.url;
 	let query = searchParams.get('q');
-	if (query === 'auto:ip') {
-		try {
-			const getIPawait = await fetch('https://api.ipify.org/?format=json', {
-				method: 'GET'
-			});
-			const { ip } = await getIPawait.json();
-			query = ip;
-		} catch (err) {
-			console.log(err);
-		}
-	}
 	let response;
 	try {
 		response = await fetch(

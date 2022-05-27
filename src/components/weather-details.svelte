@@ -29,7 +29,7 @@
 	.container {
 		padding: 32px;
 		width: 90%;
-		margin: 0 auto;
+		margin: 0 auto 20px auto;
 		border-radius: 15px;
 		display: flex;
 		text-align: center;

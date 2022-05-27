@@ -39,10 +39,9 @@
 	}
 
 	div {
-		aspect-ratio: 9 / 16;
-		width: 90%;
+		width: 100%;
 		max-width: 400px;
-		margin: 5% auto;
+		margin: 0 auto;
 		display: block;
 		backdrop-filter: blur(7px);
 		-webkit-backdrop-filter: blur(7px);

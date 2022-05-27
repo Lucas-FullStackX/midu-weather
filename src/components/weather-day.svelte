@@ -4,7 +4,6 @@
 	import WeatherIcon from './weather-icon.svelte';
 
 	export let weatherHour;
-	console.log('data', weatherHour);
 </script>
 
 <div class="container">
@@ -16,7 +15,9 @@
 <style>
 	.container {
 		padding: 10px;
-		min-width: 21vw;
+		margin-left: 0;
+		margin-right: 20px;
+		min-width: 35%;
 		margin: 0 10px;
 		border-radius: 25px;
 		display: flex;

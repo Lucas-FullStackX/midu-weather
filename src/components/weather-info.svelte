@@ -1,13 +1,12 @@
 <script>
 	import WeatherIcon from '../components/weather-icon.svelte';
+	import { tempStore } from '../store/index.js';
 	export let weather;
-	let format = 'Celsius';
-
 	function changeFormat() {
-		if (format === 'Celsius') {
-			format = 'Fahrenheit';
+		if ($tempStore === 'Celsius') {
+			tempStore.set('Fahrenheit');
 		} else {
-			format = 'Celsius';
+			tempStore.set('Celsius');
 		}
 	}
 </script>
@@ -16,14 +15,17 @@
 	<WeatherIcon text={weather.conditionText} icon={weather.conditionIcon} />
 
 	<h2>
-		{format === 'Celsius' ? Math.floor(weather.temperature) : Math.floor(weather.temp_f)}
+		{$tempStore === 'Celsius' ? Math.floor(weather.temperature) : Math.floor(weather.temp_f)}
 	</h2>
 	<h3>{weather.conditionText}</h3>
 	<span
-		><a href="#celsius" class={format === 'Celsius' ? 'selected' : ''} on:click={changeFormat}>C°</a
+		><a href="#celsius" class={$tempStore === 'Celsius' ? 'selected' : ''} on:click={changeFormat}
+			>C°</a
 		>/
-		<a href="#fahrenheit" class={format === 'Fahrenheit' ? 'selected' : ''} on:click={changeFormat}
-			>F°</a
+		<a
+			href="#fahrenheit"
+			class={$tempStore === 'Fahrenheit' ? 'selected' : ''}
+			on:click={changeFormat}>F°</a
 		></span
 	>
 </div>
@@ -49,8 +51,8 @@
 		border: 2px solid #000;
 		padding: 32px;
 		width: 90%;
-		margin: 0 auto;
-		border-radius: 10px;
+		margin: 0 auto 20px auto;
+		border-radius: 15px;
 		display: grid;
 		grid-template-columns: 50% 50%;
 		grid-template-rows: 80px 30px;
@@ -61,7 +63,6 @@
 		background: linear-gradient(311deg, #352bd8 0%, rgba(153, 68, 209, 1) 100%);
 		backdrop-filter: blur(5px);
 		-webkit-backdrop-filter: blur(5px);
-		border-radius: 10px;
 		border: 1px solid rgba(255, 255, 255, 0.18);
 	}
 </style>
