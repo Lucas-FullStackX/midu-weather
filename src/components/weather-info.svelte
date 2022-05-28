@@ -54,7 +54,6 @@
 		grid-row-start: 1;
 	}
 	.container {
-		border: 2px solid #000;
 		padding: 32px;
 		width: 90%;
 		margin: 0 auto 20px auto;
@@ -67,8 +66,5 @@
 		justify-content: space-evenly;
 		bottom: 32px;
 		background: linear-gradient(311deg, #352bd8 0%, rgba(153, 68, 209, 1) 100%);
-		backdrop-filter: blur(5px);
-		-webkit-backdrop-filter: blur(5px);
-		border: 1px solid rgba(255, 255, 255, 0.18);
 	}
 </style>

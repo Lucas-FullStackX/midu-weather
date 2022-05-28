@@ -1,5 +1,6 @@
 <script>
 	import { getWeatherFrom } from '../services/weather.js';
+	import Navbar from '../components/navbar.svelte';
 	import WeatherDetails from '../components/weather-details.svelte';
 	import WeatherHistory from '../components/waether-history.svelte';
 	import WeatherInfo from '../components/weather-info.svelte';
@@ -9,6 +10,7 @@
 {#await getWeather}
 	<p>...loading</p>
 {:then weather}
+	<Navbar />
 	<section>
 		<h1>{weather.locationName}</h1>
 		<WeatherInfo {weather} />

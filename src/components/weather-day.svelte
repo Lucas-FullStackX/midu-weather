@@ -42,8 +42,6 @@
 	}
 	.current {
 		background: linear-gradient(311deg, #352bd8 0%, rgba(153, 68, 209, 1) 100%);
-		backdrop-filter: blur(5px);
-		-webkit-backdrop-filter: blur(5px);
 	}
 	.current p {
 		color: #fafafa;
