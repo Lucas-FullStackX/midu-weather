@@ -8,7 +8,6 @@
 		class="checkbox"
 		type="checkbox"
 		on:change={(e) => {
-			console.log(e.target.checked);
 			show = e.target.checked;
 		}}
 	/>
@@ -24,11 +23,12 @@
 	nav {
 		width: 100%;
 		box-shadow: 0 1px 4px rgb(146 161 176 / 15%);
+		height: 50px;
 	}
 	nav .hamburger-lines {
 		display: block;
-		height: 26px;
-		width: 32px;
+		height: 20px;
+		width: 25px;
 		position: absolute;
 		top: 17px;
 		left: 20px;
@@ -36,6 +36,7 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
+		z-index: 3;
 	}
 	nav .hamburger-lines .line {
 		display: block;

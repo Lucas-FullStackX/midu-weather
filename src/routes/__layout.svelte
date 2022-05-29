@@ -3,6 +3,10 @@
 </div>
 
 <style>
+	:root {
+		--pure-material-onsurface-rgb: rgb(53, 43, 216);
+		--pure-material-primary-rgb: rgb(53, 43, 216);
+	}
 	:global(body) {
 		font-family: Euclid, sans-serif, Arial, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
 			Cantarell, Fira Sans, Droid Sans, Helvetica Neue;

@@ -13,7 +13,6 @@
 {:then weather}
 	<Navbar />
 	<section>
-		<h1>{weather.locationName}</h1>
 		<WeatherInfo {weather} />
 		<WeatherDetails {weather} />
 		<WeatherHistory {weather} />
