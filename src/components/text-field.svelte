@@ -1,10 +1,11 @@
 <script>
 	export let label;
 	export let onChange;
+	export let value;
 </script>
 
 <label class="pure-material-textfield-outlined">
-	<input placeholder=" " on:change={onChange} />
+	<input placeholder=" " on:input={onChange} bind:value />
 	<span>{label}</span>
 </label>
 
