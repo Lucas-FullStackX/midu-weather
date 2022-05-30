@@ -12,6 +12,7 @@
 		--bg-color: #fafafa;
 		--body-color: #ece8f4;
 		--text-color-light: #fafafa;
+		--grey-color: #9699a9;
 	}
 	:global(body) {
 		font-family: Euclid, sans-serif, Arial, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,

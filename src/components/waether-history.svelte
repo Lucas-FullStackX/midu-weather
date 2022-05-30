@@ -9,8 +9,6 @@
 	onMount(() => {
 		ref.scrollLeft = hour * 130;
 	});
-	console.log(ref);
-	console.log(weather);
 </script>
 
 {#if weather}

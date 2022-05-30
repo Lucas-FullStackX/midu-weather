@@ -46,7 +46,12 @@
 	.current p {
 		color: #fafafa;
 	}
+	p:first-child {
+		font-size: 17px;
+		font-weight: bold;
+	}
 	p {
+		font-size: 15px;
 		margin: 0;
 	}
 </style>
