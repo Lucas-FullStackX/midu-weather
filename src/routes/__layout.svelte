@@ -6,6 +6,12 @@
 	:root {
 		--pure-material-onsurface-rgb: rgb(53, 43, 216);
 		--pure-material-primary-rgb: rgb(53, 43, 216);
+		--color-primary: rgb(53, 43, 216);
+		--text-color: #000;
+		--text-color-dark: #000;
+		--bg-color: #fafafa;
+		--body-color: #ece8f4;
+		--text-color-light: #fafafa;
 	}
 	:global(body) {
 		font-family: Euclid, sans-serif, Arial, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
@@ -13,7 +19,14 @@
 		place-content: center;
 		margin: 0;
 		min-height: 100vh;
-		background: #ece8f4;
+		background: var(--body-color);
+		transition: all 0.5s;
+	}
+	:global(body.dark-mode) {
+		--text-color: #fafafa;
+		--text-color-dark: #fafafa;
+		--bg-color: #29292b;
+		--body-color: #1f1f1f;
 	}
 	:global(html, body) {
 		height: 100%;
@@ -32,19 +45,18 @@
 		-webkit-user-select: none;
 		-ms-user-select: none;
 	}
-	:global(h1, h2, h3, h4, h5, span) {
+	:global(h1, h2, h3, h4, h5, span, p) {
 		margin: 0;
-		color: #fafafa;
+		color: var(--text-color);
 	}
 	:global(a) {
 		margin: 0;
-		color: #fafafa;
+		color: var(--text-color);
 		font: bold;
 		text-decoration: none;
 	}
 	:global(a):hover {
 		margin: 0;
-		color: #faf;
 		text-decoration: none;
 	}
 

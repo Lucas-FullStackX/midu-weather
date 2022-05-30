@@ -11,3 +11,13 @@ const createTempStore = () => {
 };
 
 export const tempStore = createTempStore();
+const createThemeStore = () => {
+	const { subscribe, set, update } = writable(TempFormats.Celsius);
+	return {
+		subscribe,
+		set,
+		update
+	};
+};
+
+export const themeStore = createThemeStore();

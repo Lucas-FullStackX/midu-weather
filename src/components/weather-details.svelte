@@ -34,12 +34,11 @@
 		display: flex;
 		text-align: center;
 		justify-content: space-between;
-		background: #fafafa;
+		background: var(--bg-color);
 	}
 
 	span {
 		display: block;
-		color: #000;
 		font-weight: 600;
 		font-size: 16px;
 	}

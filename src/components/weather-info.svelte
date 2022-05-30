@@ -46,6 +46,11 @@
 	a:hover {
 		color: rgba(255, 255, 255, 0.6);
 	}
+	h2,
+	h3,
+	span {
+		color: var(--text-color-light);
+	}
 	h2 {
 		font-size: 80px;
 		text-transform: uppercase;
@@ -65,6 +70,6 @@
 		text-align: center;
 		justify-content: space-evenly;
 		bottom: 32px;
-		background: linear-gradient(311deg, #352bd8 0%, rgba(153, 68, 209, 1) 100%);
+		background: linear-gradient(311deg, var(--color-primary) 0%, rgba(153, 68, 209, 1) 100%);
 	}
 </style>

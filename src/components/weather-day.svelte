@@ -38,10 +38,10 @@
 		flex-direction: column;
 		text-align: center;
 		justify-content: space-between;
-		background: #fafafa;
+		background: var(--bg-color);
 	}
 	.current {
-		background: linear-gradient(311deg, #352bd8 0%, rgba(153, 68, 209, 1) 100%);
+		background: linear-gradient(311deg, var(--color-primary) 0%, rgba(153, 68, 209, 1) 100%);
 	}
 	.current p {
 		color: #fafafa;

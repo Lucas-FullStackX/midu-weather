@@ -44,7 +44,7 @@
 		top: 0;
 		height: 100%;
 		padding: 55px 20px 0 20px;
-		background: #ece8f4;
+		background: var(--body-color);
 		overflow-y: auto;
 		width: 100%;
 		z-index: 1;

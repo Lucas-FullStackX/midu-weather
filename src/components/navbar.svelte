@@ -1,5 +1,7 @@
 <script>
 	import Sidebar from './sidebar.svelte';
+	import Switch from './switch.svelte';
+	export let city = '';
 	let show;
 </script>
 
@@ -16,6 +18,10 @@
 		<span class="line line2" />
 		<span class="line line3" />
 	</div>
+	<div class="title">
+		<h1>{city}</h1>
+	</div>
+	<Switch />
 	<Sidebar {show} />
 </nav>
 
@@ -24,6 +30,19 @@
 		width: 100%;
 		box-shadow: 0 1px 4px rgb(146 161 176 / 15%);
 		height: 50px;
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		padding: 0 10px;
+	}
+	.title {
+		width: calc(100% - 120px);
+	}
+	h1 {
+		font-size: 1.5em;
+		font-weight: bold;
+		color: var(--text-color-dark);
+		text-align: center;
 	}
 	nav .hamburger-lines {
 		display: block;
@@ -43,7 +62,7 @@
 		height: 4px;
 		width: 100%;
 		border-radius: 10px;
-		background: #0e2431;
+		background: var(--text-color);
 	}
 	nav .hamburger-lines .line1 {
 		transform-origin: 0% 0%;

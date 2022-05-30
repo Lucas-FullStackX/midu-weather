@@ -11,7 +11,7 @@
 {#await getWeather}
 	<Loader />
 {:then weather}
-	<Navbar />
+	<Navbar city={weather.locationName} />
 	<section>
 		<WeatherInfo {weather} />
 		<WeatherDetails {weather} />
@@ -23,12 +23,5 @@
 	section {
 		padding: 16px;
 		width: 100%;
-	}
-
-	h1 {
-		font-weight: 300;
-		color: #333;
-		text-transform: uppercase;
-		padding: 16px 0 0 0;
 	}
 </style>
