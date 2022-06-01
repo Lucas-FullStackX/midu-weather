@@ -1,14 +1,16 @@
 <script>
 	import { fly } from 'svelte/transition';
 	import { searchCity } from '../services/weather';
+	import ItemCity from './item-city.svelte';
 	import Loader from './loader.svelte';
 	import TextField from './text-field.svelte';
 	// props
-	export let show = false;
+	export let show;
+	export let onChange;
 	// states
 	let search;
 	let results;
-	const onChange = (e) => {
+	const onChangeInput = (e) => {
 		if (e.target.value.length > 3) {
 			results = searchCity(e.target.value);
 		} else {
@@ -19,14 +21,14 @@
 
 {#if show}
 	<nav transition:fly={{ x: -450, opacity: 1 }}>
-		<TextField label="search" {onChange} value={search} />
+		<TextField label="search" onChange={onChangeInput} value={search} />
 		{#await results}
 			<Loader />
 		{:then results}
 			<div>
 				{#if results}
 					{#each results as result}
-						<a href="#1">{result.name}</a>
+						<ItemCity city={result} onClick={onChange} />
 					{/each}
 				{:else}
 					<p>No results</p>

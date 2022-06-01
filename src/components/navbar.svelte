@@ -2,27 +2,24 @@
 	import Sidebar from './sidebar.svelte';
 	import Switch from './switch.svelte';
 	export let city = '';
-	let show;
+	let show = false;
+	const onChange = () => {
+		show = !show;
+	};
 </script>
 
 <nav>
-	<input
-		class="checkbox"
-		type="checkbox"
-		on:change={(e) => {
-			show = e.target.checked;
-		}}
-	/>
+	<input class="checkbox" type="checkbox" on:change={onChange} bind:checked={show} />
 	<div class="hamburger-lines">
 		<span class="line line1" />
 		<span class="line line2" />
 		<span class="line line3" />
 	</div>
 	<div class="title">
-		<h1>{city}</h1>
+		<h2>{city}</h2>
 	</div>
 	<Switch />
-	<Sidebar {show} />
+	<Sidebar {show} {onChange} />
 </nav>
 
 <style>
@@ -38,7 +35,7 @@
 	.title {
 		width: calc(100% - 120px);
 	}
-	h1 {
+	h2 {
 		font-size: 1.5em;
 		font-weight: bold;
 		color: var(--text-color-dark);

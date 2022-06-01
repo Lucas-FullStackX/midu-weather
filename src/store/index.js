@@ -11,8 +11,8 @@ const createTempStore = () => {
 };
 
 export const tempStore = createTempStore();
-const createThemeStore = () => {
-	const { subscribe, set, update } = writable(TempFormats.Celsius);
+const createLoadingStoreStore = () => {
+	const { subscribe, set, update } = writable(true);
 	return {
 		subscribe,
 		set,
@@ -20,4 +20,4 @@ const createThemeStore = () => {
 	};
 };
 
-export const themeStore = createThemeStore();
+export const loadingStore = createLoadingStoreStore();

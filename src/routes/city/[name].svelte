@@ -1,28 +1,46 @@
-<script>
+<script context="module">
+	import { loadingStore } from '../../store/index.js';
 	import { getWeatherFrom } from '../../services/weather.js';
+	export async function load({ url, params }) {
+		const { name } = params;
+		console.log('test', name);
+		const data = await getWeatherFrom(name);
+
+		console.log('test', url);
+		loadingStore.set(false);
+		return {
+			props: {
+				data
+			}
+		};
+	}
+</script>
+
+<script>
+	import { page } from '$app/stores';
 	import Navbar from '../../components/navbar.svelte';
 	import Loader from '../../components/loader.svelte';
 	import WeatherDetails from '../../components/weather-details.svelte';
 	import WeatherHistory from '../../components/waether-history.svelte';
 	import WeatherInfo from '../../components/weather-info.svelte';
-	import { page } from '$app/stores';
-	const { name } = $page.params;
-	const getWeather = getWeatherFrom(name);
-	console.log($page);
-	console.log(name);
-	console.log(getWeather);
+	export let data;
+	console.log('page', $page);
+	console.log('test', $loadingStore);
+	console.log('weatherProp', data);
+	// i guess this is the same as the onMount function in the component
+	// should be save the data in the store
 </script>
 
-{#await getWeather}
+{#if $loadingStore}
 	<Loader />
-{:then weather}
-	<Navbar city={weather.locationName} />
+{:else}
+	<Navbar city={data.locationName} />
 	<section>
-		<WeatherInfo {weather} />
-		<WeatherDetails {weather} />
-		<WeatherHistory {weather} />
+		<WeatherInfo weather={data} />
+		<WeatherDetails weather={data} />
+		<WeatherHistory weather={data} />
 	</section>
-{/await}
+{/if}
 
 <style>
 	section {
