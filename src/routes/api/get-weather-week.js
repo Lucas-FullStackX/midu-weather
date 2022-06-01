@@ -20,10 +20,36 @@ export async function get(event) {
 	}
 
 	const data = await response.json();
-	const { forecast } = data;
+	console.log('API:DATA', data);
+	const { forecast, location } = data;
+	const { country, localtime, name } = location;
 	const { forecastday } = forecast;
+	const { day } = forecastday.find(({ date }) => date === today);
+	const {
+		condition,
+		feelslike_c,
+		maxwind_kph,
+		avgtemp_c,
+		avgtemp_f,
+		maxwind_dir,
+		avghumidity,
+		avgvis_km
+	} = day;
+	const { text, icon } = condition;
 	const body = {
-		forecastday
+		conditionText: text,
+		conditionIcon: icon,
+		country,
+		localtime,
+		locationName: name,
+		temperature: avgtemp_c,
+		temp_f: avgtemp_f,
+		feelsLike: feelslike_c,
+		humidity: avghumidity,
+		windSpeed: maxwind_kph,
+		windDir: maxwind_dir,
+		vis_km: avgvis_km,
+		history: forecastday
 	};
 
 	return {

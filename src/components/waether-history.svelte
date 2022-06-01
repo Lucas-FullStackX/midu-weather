@@ -12,7 +12,11 @@
 </script>
 
 {#if weather}
-	<div bind:this={ref}>
+	<div class="header">
+		<span>Today</span>
+		<a href={`/history/${weather.locationName}`}>Next Days</a>
+	</div>
+	<div bind:this={ref} class="history">
 		{#each weather.history as weatherHour}
 			<WeatherDay {weatherHour} />
 		{/each}
@@ -20,9 +24,18 @@
 {/if}
 
 <style>
-	div {
+	span {
+		font-weight: bold;
+	}
+	.header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 10px;
+	}
+	.history {
 		padding: 0;
-		width: 90%;
+		width: 100%;
 		overflow: auto;
 		margin: 0 auto;
 		display: flex;

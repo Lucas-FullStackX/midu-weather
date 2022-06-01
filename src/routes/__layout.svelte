@@ -59,6 +59,7 @@
 	:global(a):hover {
 		margin: 0;
 		text-decoration: none;
+		color: var(--grey-color);
 	}
 
 	div {

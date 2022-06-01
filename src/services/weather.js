@@ -14,6 +14,7 @@ export async function getWeatherWeek(city = 'auto:ip') {
 		.then((res) => res.json())
 		.catch((err) => console.log(err));
 }
+
 export async function searchCity(query) {
 	return fetch(`/api/search-city?${new URLSearchParams({ q: query })}`)
 		.then((res) => res.json())

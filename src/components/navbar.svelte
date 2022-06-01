@@ -25,12 +25,11 @@
 <style>
 	nav {
 		width: 100%;
-		box-shadow: 0 1px 4px rgb(146 161 176 / 15%);
 		height: 50px;
 		display: flex;
 		justify-content: flex-end;
 		align-items: center;
-		padding: 0 10px;
+		padding: 10px 15px;
 	}
 	.title {
 		width: calc(100% - 120px);

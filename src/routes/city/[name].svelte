@@ -44,7 +44,7 @@
 
 <style>
 	section {
-		padding: 16px;
+		padding: 15px 25px;
 		width: 100%;
 	}
 </style>
