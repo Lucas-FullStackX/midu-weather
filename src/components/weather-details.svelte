@@ -28,7 +28,7 @@
 <style>
 	.container {
 		padding: 32px;
-		width: 90%;
+		width: 100%;
 		margin: 0 auto 20px auto;
 		border-radius: 15px;
 		display: flex;

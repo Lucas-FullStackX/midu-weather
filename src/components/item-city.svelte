@@ -20,10 +20,18 @@
 <style>
 	.content {
 		width: 100%;
-		height: 70px;
 		margin: 10px 0;
 		border-radius: 10px;
 		padding: 15px;
 		background-color: var(--bg-color);
+	}
+	p:first-child {
+		font-size: 1.2em;
+		font-weight: bold;
+		margin-bottom: 5px;
+	}
+	p:first-child:hover {
+		cursor: pointer;
+		color: var(--grey-color);
 	}
 </style>

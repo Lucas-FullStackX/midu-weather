@@ -29,7 +29,7 @@
 		display: flex;
 		justify-content: flex-end;
 		align-items: center;
-		padding: 10px 15px;
+		padding: 10px 25px;
 	}
 	.title {
 		width: calc(100% - 120px);

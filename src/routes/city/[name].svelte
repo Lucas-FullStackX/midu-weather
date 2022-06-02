@@ -31,6 +31,11 @@
 	// should be save the data in the store
 </script>
 
+<svelte:head>
+	<title>{data.locationName ?? 'Weather'}</title>
+	<meta name="robots" content="noindex nofollow" />
+	<html lang="en" />
+</svelte:head>
 {#if $loadingStore}
 	<Loader />
 {:else}

@@ -16,6 +16,7 @@
 	span {
 		color: var(--pure-material-primary-rgb);
 	}
+
 	.pure-material-textfield-outlined {
 		--pure-material-safari-helper1: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
 		position: relative;
@@ -52,7 +53,8 @@
 		line-height: inherit;
 		caret-color: var(--pure-material-primary-rgb);
 		transition: border 0.2s, box-shadow 0.2s;
-		background-color: #fafafa;
+		background-color: #00000000;
+		color: var(--text-color);
 	}
 
 	/* Span */

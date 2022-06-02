@@ -1,0 +1,32 @@
+[
+	{
+		"url": "san-francisco-california-united-states-of-america",
+		"name": "San Francisco",
+		"country": "United States of America"
+	},
+	{
+		"url": "london-city-of-london-greater-london-united-kingdom",
+		"name": "London",
+		"country": "Greater London"
+	},
+	{
+		"url": "madrid-madrid-spain",
+		"name": "Madrid",
+		"country": "Spain"
+	},
+	{
+		"url": "bogota-cundinamarca-colombia",
+		"name": "Bogota",
+		"country": "Colombia"
+	},
+	{
+		"url": "b-vista-buenos-aires-argentina",
+		"name": "Buenos Aires",
+		"country": "Argentina"
+	},
+	{
+		"url": "berlin-berlin-germany",
+		"name": "Berlin",
+		"country": "Germany"
+	}
+]

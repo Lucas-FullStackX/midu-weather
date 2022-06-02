@@ -1,6 +1,5 @@
 <script>
 	import dayjs from 'dayjs';
-
 	import { onMount } from 'svelte';
 	import WeatherDay from './weather-day.svelte';
 	export let weather;
@@ -14,7 +13,7 @@
 {#if weather}
 	<div class="header">
 		<span>Today</span>
-		<a href={`/history/${weather.locationName}`}>Next Days</a>
+		<a href={`/history/${weather.locationName}`}>Next Days </a>
 	</div>
 	<div bind:this={ref} class="history">
 		{#each weather.history as weatherHour}
@@ -31,7 +30,7 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		margin-bottom: 10px;
+		margin-bottom: 20px;
 	}
 	.history {
 		padding: 0;
