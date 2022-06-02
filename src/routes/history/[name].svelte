@@ -3,10 +3,7 @@
 	import { getWeatherWeek } from '../../services/weather.js';
 	export async function load({ params }) {
 		const { name } = params;
-		console.log('test', name);
 		const data = await getWeatherWeek(name);
-
-		console.log('DATA:', data);
 		loadingStore.set(false);
 		return {
 			props: {
@@ -17,18 +14,13 @@
 </script>
 
 <script>
-	import { page } from '$app/stores';
 	import Navbar from '../../components/navbar.svelte';
 	import Loader from '../../components/loader.svelte';
 	import WeatherDetails from '../../components/weather-details.svelte';
-	import WeatherHistory from '../../components/waether-history.svelte';
 	import WeatherInfo from '../../components/weather-info.svelte';
 	import WeatherWeek from '../../components/weather-week.svelte';
 	import { TypeNavigation } from '../../types/index.js';
 	export let data;
-	console.log('page', $page);
-	console.log('test', $loadingStore);
-	console.log('weatherProp', data);
 	// i guess this is the same as the onMount function in the component
 	// should be save the data in the store
 </script>

@@ -5,7 +5,6 @@ export async function get(event) {
 	const { searchParams } = event.url;
 	let query = searchParams.get('q');
 	!query || query === 'auto' ? (query = 'auto:ip') : query;
-	console.log(query);
 	let response;
 	try {
 		response = await fetch(

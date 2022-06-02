@@ -13,7 +13,6 @@ export async function get(event) {
 		throw new Error(err.message);
 	}
 	const data = await response.json();
-	console.log(data);
 	return {
 		status: 200,
 		body: data

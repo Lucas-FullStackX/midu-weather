@@ -20,7 +20,6 @@ export async function get(event) {
 	}
 
 	const data = await response.json();
-	console.log('API:DATA', data);
 	const { forecast, location } = data;
 	const { country, localtime, name } = location;
 	const { forecastday } = forecast;

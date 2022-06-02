@@ -4,7 +4,6 @@
 	import { TempFormats } from '../types';
 
 	export let history;
-	console.log('history', history);
 </script>
 
 <div class="container">
