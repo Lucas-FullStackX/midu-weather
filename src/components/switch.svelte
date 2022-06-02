@@ -1,11 +1,13 @@
 <script>
+	import { themeStore } from '../store';
 	function toggle() {
 		window.document.body.classList.toggle('dark-mode');
+		$themeStore ? $themeStore.set(false) : $themeStore.set(true);
 	}
 </script>
 
 <label class="switch">
-	<input type="checkbox" on:change={toggle} />
+	<input type="checkbox" bind:checked={$themeStore} on:change={toggle} />
 	<span class="slider round" />
 </label>
 

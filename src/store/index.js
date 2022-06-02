@@ -11,6 +11,7 @@ const createTempStore = () => {
 };
 
 export const tempStore = createTempStore();
+
 const createLoadingStoreStore = () => {
 	const { subscribe, set, update } = writable(true);
 	return {
@@ -21,3 +22,14 @@ const createLoadingStoreStore = () => {
 };
 
 export const loadingStore = createLoadingStoreStore();
+
+const createThemeStoreStore = () => {
+	const { subscribe, set, update } = writable(false);
+	return {
+		subscribe,
+		set,
+		update
+	};
+};
+
+export const themeStore = createThemeStoreStore();

@@ -23,6 +23,7 @@
 	import WeatherDetails from '../../components/weather-details.svelte';
 	import WeatherHistory from '../../components/waether-history.svelte';
 	import WeatherInfo from '../../components/weather-info.svelte';
+	import { TypeNavigation } from '../../types/index.js';
 	export let data;
 	console.log('page', $page);
 	console.log('test', $loadingStore);
@@ -39,7 +40,7 @@
 {#if $loadingStore}
 	<Loader />
 {:else}
-	<Navbar city={data.locationName} />
+	<Navbar city={data.locationName} type={TypeNavigation.MAIN} />
 	<section>
 		<WeatherInfo weather={data} />
 		<WeatherDetails weather={data} />

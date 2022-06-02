@@ -1,20 +1,35 @@
 <script>
+	import { goto } from '$app/navigation';
+	import { page } from '$app/stores';
+
+	import ArrowBack from '../icons/components/arrow-back.svelte';
+	import { TypeNavigation } from '../types';
 	import Sidebar from './sidebar.svelte';
 	import Switch from './switch.svelte';
 	export let city = '';
+	export let type;
 	let show = false;
 	const onChange = () => {
 		show = !show;
 	};
+	const goSomeWhereBack = () => {
+		goto(`/city/${$page.params.name}`);
+	};
 </script>
 
 <nav>
-	<input class="checkbox" type="checkbox" on:change={onChange} bind:checked={show} />
-	<div class="hamburger-lines">
-		<span class="line line1" />
-		<span class="line line2" />
-		<span class="line line3" />
-	</div>
+	{#if type === TypeNavigation.MAIN}
+		<input class="checkbox" type="checkbox" on:change={onChange} bind:checked={show} />
+		<div class="hamburger-lines">
+			<span class="line line1" />
+			<span class="line line2" />
+			<span class="line line3" />
+		</div>
+	{:else}
+		<div class="icon" on:click={goSomeWhereBack}>
+			<ArrowBack />
+		</div>
+	{/if}
 	<div class="title">
 		<h2>{city}</h2>
 	</div>
@@ -31,14 +46,22 @@
 		align-items: center;
 		padding: 10px 25px;
 	}
-	.title {
-		width: calc(100% - 120px);
-	}
 	h2 {
 		font-size: 1.5em;
 		font-weight: bold;
 		color: var(--text-color-dark);
 		text-align: center;
+	}
+	.icon {
+		cursor: pointer;
+		margin-right: 10px;
+		width: 30px;
+		position: absolute;
+		top: 12px;
+		left: 20px;
+	}
+	.title {
+		width: calc(100% - 120px);
 	}
 	nav .hamburger-lines {
 		display: block;
